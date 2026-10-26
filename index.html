@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>الأورفية — L’Orphisme</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=Cairo:wght@300;400;600&family=Reem+Kufi:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d1030;--bg2:#171a4a;--fg:#f4f1ea;--mut:#b4b6d6;--card:rgba(255,255,255,.07);--line:rgba(255,255,255,.16);
+--o:#ff7a1a;--m:#e5307f;--b:#2a6bff;--y:#ffd23f;--g:#19c37d;--v:#7b4dff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1030;--bg2:#171a4a;--fg:#f4f1ea}}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#faf5ea;--bg2:#efe6d2;--fg:#1a1c40;--mut:#4d5078;--card:rgba(26,28,64,.06);--line:rgba(26,28,64,.18);color-scheme:light}}
+:root[data-theme="light"]{--bg:#faf5ea;--bg2:#efe6d2;--fg:#1a1c40;--mut:#4d5078;--card:rgba(26,28,64,.06);--line:rgba(26,28,64,.18);color-scheme:light}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;overflow:hidden}
+body{background:radial-gradient(120% 90% at 80% 10%,var(--bg2),var(--bg));color:var(--fg);font-family:'Cairo',sans-serif;font-weight:400}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+.deck{position:relative;height:100%}
+.slide{position:absolute;inset:0;padding:clamp(28px,6vh,64px) clamp(20px,7vw,110px) 90px;display:flex;align-items:center;gap:clamp(20px,5vw,70px);opacity:0;visibility:hidden;transform:translateX(-40px);transition:opacity .7s,transform .7s,visibility .7s;overflow-y:auto}
+.slide.on{opacity:1;visibility:visible;transform:none}
+.txt{flex:1.1;min-width:0}.art{flex:.9;display:flex;justify-content:center;min-width:0}
+.tag{font-family:'Reem Kufi';color:var(--o);letter-spacing:.08em;font-size:1rem;display:inline-block;border-bottom:2px solid var(--o);padding-bottom:4px;margin-bottom:14px}
+h1,h2{font-family:'Reem Kufi',sans-serif;font-weight:700;line-height:1.2}
+h2{font-size:clamp(2rem,4.6vw,3.6rem);margin-bottom:18px;background:linear-gradient(90deg,var(--o),var(--m),var(--v));-webkit-background-clip:text;background-clip:text;color:transparent}
+h1{font-family:'Aref Ruqaa',serif;font-size:clamp(4.5rem,13vw,10rem);line-height:1;background:linear-gradient(100deg,var(--y),var(--o),var(--m),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s ease-in-out infinite alternate;background-size:200% 100%}
+@keyframes shine{to{background-position:100% 0}}
+.sub{font-family:'Reem Kufi';font-size:clamp(1.1rem,2.4vw,1.8rem);margin-top:10px}
+.lat{color:var(--mut);letter-spacing:.3em;font-size:.95rem;margin-top:10px;direction:ltr;text-align:right}
+p{font-size:clamp(1rem,1.6vw,1.25rem);line-height:2;color:var(--fg)}
+.q{font-family:'Aref Ruqaa';font-size:clamp(1.3rem,2.4vw,1.9rem);border-inline-start:4px solid var(--m);padding-inline-start:18px;margin-top:22px;color:var(--y);line-height:1.8}
+.facts{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 18px;font-size:.95rem}
+.facts b{display:block;font-family:'Reem Kufi';color:var(--o);font-size:1.3rem}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 20px;position:relative;overflow:hidden;animation:rise .8s both}
+.card::after{content:"";position:absolute;inset:0 0 auto;height:4px;background:var(--c,var(--o))}
+.card h3{font-family:'Reem Kufi';font-size:1.3rem;margin-bottom:4px}
+.card small{color:var(--mut);display:block;font-size:.9rem;line-height:1.7}
+.card .n{font-family:'Reem Kufi';font-size:2rem;color:var(--c,var(--o));line-height:1}
+.on .card:nth-child(2){animation-delay:.12s}.on .card:nth-child(3){animation-delay:.24s}.on .card:nth-child(4){animation-delay:.36s}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}}
+.tl{position:relative;margin-top:6px;padding-inline-start:30px;border-inline-start:3px solid var(--line)}
+.tl>div{position:relative;margin-bottom:20px;animation:rise .8s both}
+.tl>div::before{content:"";position:absolute;inset-inline-start:-40px;top:8px;width:16px;height:16px;border-radius:50%;background:var(--c);box-shadow:0 0 0 6px var(--card);animation:pulse 2.4s infinite}
+.tl b{font-family:'Reem Kufi';color:var(--c);font-size:1.4rem}.tl span{display:block;font-size:1.02rem;line-height:1.8}
+.on .tl>div:nth-child(2){animation-delay:.15s}.on .tl>div:nth-child(3){animation-delay:.3s}.on .tl>div:nth-child(4){animation-delay:.45s}
+@keyframes pulse{50%{box-shadow:0 0 0 12px transparent}}
+.plate{width:min(100%,430px);aspect-ratio:1;border-radius:22px;padding:12px;background:var(--card);border:1px solid var(--line);box-shadow:0 30px 70px -30px #000a;animation:float 6s ease-in-out infinite}
+.plate svg{width:100%;height:100%;border-radius:12px;display:block}
+.plate figcaption{font-size:.8rem;color:var(--mut);text-align:center;margin-top:8px}
+.plate.tall{aspect-ratio:auto}.plate.tall svg{aspect-ratio:1}
+@keyframes float{50%{transform:translateY(-12px) rotate(.6deg)}}
+.ring{transform-box:fill-box;transform-origin:center;animation:spin linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero{flex-direction:row}
+.hero .art svg{width:min(78vw,480px);height:auto;filter:drop-shadow(0 0 40px #e5307f55)}
+.nav{position:fixed;inset-inline:0;bottom:0;padding:14px 22px calc(14px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;justify-content:space-between;gap:12px;z-index:5;background:linear-gradient(transparent,var(--bg) 60%)}
+.nav button{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--fg);font-size:1.3rem;cursor:pointer;transition:.2s}
+.nav button:hover{background:var(--o);color:#fff;transform:scale(1.08)}
+.dots{display:flex;gap:8px}.dots i{width:10px;height:10px;border-radius:50%;background:var(--line);cursor:pointer;transition:.3s}.dots i.on{width:30px;border-radius:6px;background:var(--o)}
+.cnt{font-family:'Reem Kufi';color:var(--mut);min-width:48px;text-align:center}
+.bar{position:fixed;top:env(safe-area-inset-top,0px);inset-inline:0;height:4px;z-index:11}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--y),var(--o),var(--m),var(--b));transition:width .5s}
+@media(max-width:820px){.slide{flex-direction:column;align-items:stretch;justify-content:flex-start;padding-top:36px}.hero{justify-content:center}.art{order:-1}.plate{max-width:260px}.grid{grid-template-columns:1fr}.hero .art svg{width:min(60vw,260px)}.lat{text-align:center}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="bar"><i id="bar"></i></div>
+<main class="deck" id="deck">
+
+<section class="slide hero on">
+ <div class="txt"><span class="tag">عرض تقديمي · تاريخ الفن الحديث</span>
+  <h1>الأورفية</h1>
+  <div class="sub">فنّ اللون الخالص والموسيقى المرئية</div>
+  <div class="lat">L’ORPHISME · PARIS 1912</div></div>
+ <div class="art"><svg id="d1" viewBox="0 0 400 400" role="img" aria-label="قرص ملوّن دوّار"></svg></div>
+</section>
+
+<section class="slide">
+ <div class="txt"><span class="tag">01 · التعريف</span>
+  <h2>ما هي الأورفية؟</h2>
+  <p>الأورفية حركة فنية تجريدية وُلدت في باريس حوالي عام 1912، تبني اللوحة على اللون الخالص والأشكال الهندسية، وخاصةً الدائرة، فتجعل اللون يؤدّي وظيفة الإيقاع في الموسيقى بدلاً من محاكاة الواقع. تُعرف أيضاً بـ«التكعيبية الأورفية».</p>
+  <div class="q">سمّاها الشاعر غيّوم أبولينير على اسم أورفيوس، الموسيقي والشاعر في الأساطير الإغريقية.</div>
+  <div class="facts"><div><b>1912</b>الظهور</div><div><b>باريس</b>المهد</div><div><b>اللون</b>جوهر اللوحة</div></div></div>
+ <div class="art"><figure class="plate"><svg viewBox="0 0 400 400" id="win" role="img" aria-label="تكوين نوافذ ملوّنة متراكبة"></svg><figcaption>لوحة توضيحية مستوحاة من أسلوب «النوافذ»</figcaption></figure></div>
+</section>
+
+<section class="slide">
+ <div class="txt"><span class="tag">02 · الجذور والتطوّر</span>
+  <h2>محطات أساسية</h2>
+  <div class="tl">
+   <div style="--c:var(--o)"><b>1910 – 1912</b><span>روبير دولوني يحرّر لوحته من الموضوع تدريجياً عبر سلسلتَي «برج إيفل» و«النوافذ».</span></div>
+   <div style="--c:var(--m)"><b>أكتوبر 1912</b><span>معرض «سالون القسم الذهبي» في باريس؛ أبولينير يطلق اسم «الأورفية» على هذا التوجّه.</span></div>
+   <div style="--c:var(--b)"><b>1913</b><span>«القرص المتزامن» لدولوني، وكتاب «نثر عبر سيبيريا» لسونيا دولوني مع الشاعر بليز ساندرار.</span></div>
+   <div style="--c:var(--g)"><b>1914</b><span>اندلاع الحرب العالمية الأولى يبدّد تماسك المجموعة، وتستمر الأفكار في الانتشار.</span></div>
+  </div></div>
+ <div class="art"><svg id="d2" viewBox="0 0 400 400" style="width:min(100%,360px)" role="img" aria-label="قرص ملوّن دوّار"></svg></div>
+</section>
+
+<section class="slide">
+ <div class="txt"><span class="tag">03 · الأعلام</span>
+  <h2>أبرز الفنانين</h2>
+  <div class="grid">
+   <div class="card" style="--c:var(--o)"><div class="n">1</div><h3>روبير دولوني</h3><small>1885 – 1941 · رائد الحركة، اشتهر بسلسلة «النوافذ» و«الأقراص المتزامنة».</small></div>
+   <div class="card" style="--c:var(--m)"><div class="n">2</div><h3>سونيا دولوني</h3><small>1885 – 1979 · نقلت اللون المتزامن إلى الكتاب والنسيج والأزياء.</small></div>
+   <div class="card" style="--c:var(--b)"><div class="n">3</div><h3>فرانتيشك كوبكا</h3><small>1871 – 1957 · التشيكي صاحب «أمورفا، فوغ بلونين» وتجريد الإيقاع.</small></div>
+   <div class="card" style="--c:var(--g)"><div class="n">4</div><h3>بيكابيا وليجيه</h3><small>فرانسيس بيكابيا (1879 – 1953) وفرناند ليجيه (1881 – 1955)، قريبان من التيار.</small></div>
+  </div></div>
+ <div class="art"><figure class="plate"><svg viewBox="0 0 400 400" id="arcs" role="img" aria-label="أقواس لونية متحرّكة"></svg><figcaption>لوحة توضيحية مستوحاة من إيقاعات كوبكا</figcaption></figure></div>
+</section>
+
+<section class="slide">
+ <div class="txt"><span class="tag">04 · الخصائص</span>
+  <h2>ما الذي يميّز الأورفية؟</h2>
+  <div class="grid">
+   <div class="card" style="--c:var(--y)"><h3>اللون الخالص</h3><small>ألوان نقية مشبعة تُبنى بها الأشكال دون خطوط محيطة ثقيلة.</small></div>
+   <div class="card" style="--c:var(--m)"><h3>التباين المتزامن</h3><small>مستوحى من نظرية الكيميائي شوفريل: يتغيّر أثر اللون بجوار لون آخر.</small></div>
+   <div class="card" style="--c:var(--b)"><h3>الدائرة والإيقاع</h3><small>أقراص وحلقات تتكرّر وتتراكب كأنها نغمات متتابعة.</small></div>
+   <div class="card" style="--c:var(--g)"><h3>التجريد الغنائي</h3><small>تقارب اللوحة القصيدة والموسيقى أكثر ممّا تقارب المشهد.</small></div>
+  </div></div>
+ <div class="art"><svg id="d3" viewBox="0 0 400 400" style="width:min(100%,360px)" role="img" aria-label="قرص ملوّن دوّار"></svg></div>
+</section>
+
+<section class="slide">
+ <div class="txt"><span class="tag">05 · الأثر</span>
+  <h2>إرث الأورفية</h2>
+  <p>فتحت الأورفية الطريق أمام التجريد الملوّن في أوروبا وخارجها، وتجاوز أثرها اللوحة إلى التصميم والموضة والنسيج.</p>
+  <div class="grid">
+   <div class="card" style="--c:var(--o)"><h3>السنكرومية</h3><small>تيار أمريكي لدى مورغان راسل وستانتون ماكدونالد-رايت تأثّر بالتجارب اللونية الباريسية.</small></div>
+   <div class="card" style="--c:var(--v)"><h3>الفارس الأزرق</h3><small>أصداء واضحة لدى باول كلي وأوغست ماكه بعد زيارة دولوني.</small></div>
+  </div>
+  <div class="q">«حين يصبح اللون موسيقى، تتحوّل اللوحة إلى نشيد.»</div></div>
+ <div class="art"><svg id="d4" viewBox="0 0 400 400" style="width:min(100%,380px)" role="img" aria-label="قرص ملوّن دوّار"></svg></div>
+</section>
+</main>
+
+<nav class="nav"><button id="nx" aria-label="التالي">→</button><div class="dots" id="dots"></div><div class="cnt" id="cnt"></div><button id="pv" aria-label="السابق">←</button></nav>
+
+<script>
+const NS="http://www.w3.org/2000/svg",P=["#ff7a1a","#e5307f","#2a6bff","#ffd23f","#19c37d","#7b4dff"];
+const E=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);p&&p.appendChild(e);return e};
+function arc(r0,r1,a0,a1){const f=(r,a)=>[200+r*Math.cos(a),200+r*Math.sin(a)];const A=f(r1,a0),B=f(r1,a1),C=f(r0,a1),D=f(r0,a0);return`M${A}A${r1} ${r1} 0 0 1 ${B}L${C}A${r0} ${r0} 0 0 0 ${D}Z`}
+function disc(id,rings,seg,shift){const s=document.getElementById(id);E("circle",{cx:200,cy:200,r:196,fill:"none",stroke:"rgba(255,255,255,.25)"},s);const w=180/rings;
+ for(let i=0;i<rings;i++){const g=E("g",{class:"ring"},s);g.style.animationDuration=(14+i*7)+"s";g.style.animationDirection=i%2?"reverse":"normal";
+  const n=seg+(i%2)*2;for(let j=0;j<n;j++){E("path",{d:arc(20+i*w,20+(i+1)*w-1,j*2*Math.PI/n,(j+1)*2*Math.PI/n),fill:P[(i+j+shift)%6]},g)}}
+ E("circle",{cx:200,cy:200,r:18,fill:P[shift%6]},s)}
+disc("d1",6,6,0);disc("d2",5,5,2);disc("d3",5,4,4);disc("d4",7,6,1);
+(function(){const s=document.getElementById("win");E("rect",{width:400,height:400,fill:"#0d1030"},s);
+ [[30,40,150,220,0],[110,90,170,200,1],[210,30,140,250,2],[60,200,200,160,3],[250,170,110,190,4],[150,20,90,130,5]].forEach(([x,y,w,h,c],i)=>{
+  const r=E("rect",{x,y,width:w,height:h,rx:6,fill:P[c],opacity:.7,style:"mix-blend-mode:screen;animation:pulse2 "+(4+i)+"s ease-in-out infinite alternate"},s)});
+ const st=document.createElement("style");st.textContent="@keyframes pulse2{from{opacity:.35;transform:translateY(0)}to{opacity:.9;transform:translateY(-14px)}}";document.head.appendChild(st)})();
+(function(){const s=document.getElementById("arcs");E("rect",{width:400,height:400,fill:"#12154a"},s);
+ for(let i=0;i<7;i++){const g=E("g",{class:"ring"},s);g.style.animationDuration=(10+i*5)+"s";g.style.animationDirection=i%2?"reverse":"normal";
+  E("path",{d:arc(30+i*24,44+i*24,0.3*i,0.3*i+2.4),fill:P[i%6],opacity:.9},g);E("path",{d:arc(30+i*24,40+i*24,3.8+i*.2,5.4+i*.2),fill:P[(i+3)%6],opacity:.75},g)}})();
+
+const S=[...document.querySelectorAll(".slide")],dots=document.getElementById("dots");let c=0;
+S.forEach((_,i)=>{const d=document.createElement("i");d.onclick=()=>go(i);dots.appendChild(d)});
+function go(n){c=Math.max(0,Math.min(S.length-1,n));S.forEach((s,i)=>s.classList.toggle("on",i===c));[...dots.children].forEach((d,i)=>d.classList.toggle("on",i===c));
+ document.getElementById("cnt").textContent=(c+1)+" / "+S.length;document.getElementById("bar").style.width=((c+1)/S.length*100)+"%";S[c].scrollTop=0}
+nx.onclick=()=>go(c+1);pv.onclick=()=>go(c-1);
+addEventListener("keydown",e=>{if(["ArrowLeft","PageDown"," "].includes(e.key))go(c+1);if(["ArrowRight","PageUp"].includes(e.key))go(c-1)});
+let x0=null;addEventListener("touchstart",e=>x0=e.touches[0].clientX,{passive:true});
+addEventListener("touchend",e=>{if(x0===null)return;const d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>70)go(d<0?c+1:c-1);x0=null});
+go(0);
+</script>
+</body>
+</html>
